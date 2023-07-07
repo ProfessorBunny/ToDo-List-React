@@ -12,7 +12,13 @@ const SingleTask = ({ task, removeTask }) => {
         }}
       />
       <p style={{ textDecoration: isChecked && "line-through" }}>{task.name}</p>
-      <button className="btn remove-btn" type="button">
+      <button
+        className="btn remove-btn"
+        type="button"
+        onClick={() => {
+          removeTask(task.id);
+        }}
+      >
         Remove
       </button>
     </div>

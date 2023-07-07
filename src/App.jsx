@@ -14,11 +14,15 @@ const App = () => {
     };
     setTasks([...tasks, newTask]);
   };
-  const removeTask = (itemId) => {};
+  const removeTask = (taskId) => {
+    const remainingTasks = tasks.filter((task) => task.id !== taskId);
+
+    setTasks(remainingTasks);
+  };
   return (
     <section className="section-center">
-      <Form addTasks={addTasks} removeTask={removeTask} />
-      <Tasks tasks={tasks} />
+      <Form addTasks={addTasks} />
+      <Tasks tasks={tasks} removeTask={removeTask} />
     </section>
   );
 };
