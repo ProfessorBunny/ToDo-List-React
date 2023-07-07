@@ -4,20 +4,38 @@ import { nanoid } from "nanoid";
 import Tasks from "./Tasks";
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+  const setLocalStorage = (tasks) => {
+    localStorage.setItem("taskList", JSON.stringify(tasks));
+  };
+  // const getLocalStorage = (tasks) => {
+  //   let taskList = localStorage.getItem("taskList");
+  //   if (taskList) {
+  //     taskList = JSON.parse(localStorage.getItem("taskList"));
+  //   } else {
+  //     taskList = [];
+  //   }
+  //   return taskList;
+  // };
+  // const [tasks, setTasks] = useState(getLocalStorage);
 
+  const taskList = JSON.parse(localStorage.getItem("taskList") || "[]");
+
+  const [tasks, setTasks] = useState(taskList);
   const addTasks = (taskName) => {
     const newTask = {
       name: taskName,
       completed: false,
       id: nanoid(),
     };
-    setTasks([...tasks, newTask]);
+    const newTasks = [...tasks, newTask];
+    setTasks(newTasks);
+    setLocalStorage(newTasks);
   };
   const removeTask = (taskId) => {
     const remainingTasks = tasks.filter((task) => task.id !== taskId);
 
     setTasks(remainingTasks);
+    setLocalStorage(remainingTasks);
   };
   return (
     <section className="section-center">
