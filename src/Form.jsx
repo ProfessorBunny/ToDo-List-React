@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 
-const Form = () => {
-  const [newItem, setNewItem] = useState("");
+const Form = ({ addTasks }) => {
+  const [newTask, setNewTask] = useState("");
   const changeHandler = (e) => {
-    setNewItem(e.target.value);
+    setNewTask(e.target.value);
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(newItem);
-    setNewItem("");
+    if (!newTask) return;
+    addTasks(newTask);
+    setNewTask("");
   };
 
   return (
@@ -18,7 +19,7 @@ const Form = () => {
         <input
           type="text"
           className="form-input"
-          value={newItem}
+          value={newTask}
           onChange={changeHandler}
         />
         <button className="btn" type="submit">
