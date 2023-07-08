@@ -12,7 +12,12 @@ const SingleTask = ({ task, removeTask, editTask }) => {
           editTask(task.id);
         }}
       />
-      <p style={{ textDecoration: task.completed && "line-through" }}>
+      <p
+        style={{
+          textTransform: "capitalize",
+          textDecoration: task.completed && "line-through",
+        }}
+      >
         {task.name}
       </p>
       <button

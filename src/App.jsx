@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "./Form";
 import { nanoid } from "nanoid";
 import Tasks from "./Tasks";
+import { ToastContainer, toast } from "react-toastify";
 
 const App = () => {
   const setLocalStorage = (tasks) => {
@@ -31,6 +32,7 @@ const App = () => {
     const newTasks = [...tasks, newTask];
     setTasks(newTasks);
     setLocalStorage(newTasks);
+    toast.success("Task successfully added");
   };
   const editTask = (taskId) => {
     const newTasks = tasks.map((task) => {
@@ -43,6 +45,7 @@ const App = () => {
 
     setTasks(newTasks);
     setLocalStorage(newTasks);
+    toast.success("Task status updated");
   };
 
   const removeTask = (taskId) => {
@@ -50,9 +53,11 @@ const App = () => {
 
     setTasks(remainingTasks);
     setLocalStorage(remainingTasks);
+    toast.success("Task successfully removed");
   };
   return (
     <section className="section-center">
+      <ToastContainer position="top-center" />
       <Form addTasks={addTasks} />
       <Tasks tasks={tasks} removeTask={removeTask} editTask={editTask} />
     </section>

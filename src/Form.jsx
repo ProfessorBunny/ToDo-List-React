@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { toast } from "react-toastify";
 const Form = ({ addTasks }) => {
   const [newTask, setNewTask] = useState("");
   const changeHandler = (e) => {
@@ -7,7 +7,10 @@ const Form = ({ addTasks }) => {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    if (!newTask) return;
+    if (!newTask) {
+      toast.error("Please enter a valid task");
+      return;
+    }
     addTasks(newTask);
     setNewTask("");
   };
