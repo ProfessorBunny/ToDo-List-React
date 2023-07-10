@@ -52,7 +52,3 @@ Once you have the Todo List React app running locally, you can start using it by
 ## Credits
 
 This Todo List React app built with Vite was developed by [ProfessorBunny] as a simple task management tool using React and React Toastify.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
