@@ -26,7 +26,7 @@ To run this React app locally, please follow these steps:
    npm run dev
    ```
 
-5. Open your web browser and visit `http://localhost:3000` to access the Todo List app.
+5. Open your web browser and visit `http://localhost:5173` to access the Todo List app.
 
 ## Dependencies
 
