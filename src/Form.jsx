@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { toast } from "react-toastify";
+import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 const Form = ({ addTasks }) => {
-  const [newTask, setNewTask] = useState("");
+  const [newTask, setNewTask] = useState('')
   const changeHandler = (e) => {
-    setNewTask(e.target.value);
-  };
+    setNewTask(e.target.value)
+  }
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!newTask) {
-      toast.error("Please enter a valid task");
-      return;
+      toast.error('Please enter a valid task name')
+      return
     }
-    addTasks(newTask);
-    setNewTask("");
-  };
+    addTasks(newTask)
+    setNewTask('')
+  }
 
   return (
     <form onSubmit={submitHandler}>
@@ -30,7 +30,7 @@ const Form = ({ addTasks }) => {
         </button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form
