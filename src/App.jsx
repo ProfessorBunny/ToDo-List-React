@@ -53,7 +53,7 @@ const App = () => {
 
     setTasks(remainingTasks)
     setLocalStorage(remainingTasks)
-    toast.success('Task successfully ')
+    toast.success('Task successfully removed from the list')
   }
   return (
     <section className="section-center">
